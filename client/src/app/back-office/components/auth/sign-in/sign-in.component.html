@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="d-flex align-items-center justify-content-center my-5 my-lg-0">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+                <div class="col mx-auto">
+                    <div class="my-4 text-center">
+                        
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="border p-4 rounded">
+        
+                                <div class="text-center">
+                                    <h3 class="">Sign In Admin</h3>
+                                    <p>create account? <a routerLink="/admin/sign-up">Sign in here</a>
+                                    </p>
+                                </div>
+                                
+                                <div class="form-body">
+                                    <form class="row g-3"  [formGroup]="userForm" (ngSubmit)="onSubmit()" #f="ngForm">
+                                        <div class="col-sm-12">
+                                            <label for="username" class="form-label">User Name</label>
+                                            <input type="text" class="form-control" id="username" formControlName="username" placeholder="">
+                                        </div>
+                                        <!--<div class="col-sm-6">
+                                            <label for="email" class="form-label" >Email</label>
+                                            <input type="email" class="form-control" id="inputLastName" formControlName="email"  placeholder="">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="phone" class="form-label">Phone</label>
+                                            <input type="phone" class="form-control" id="phone" formControlName="phoneNumber" placeholder="">
+                                        </div>-->
+                                        <div class="col-12">
+                                            <label for="password" class="form-label">Password</label>
+                                            <div class="input-group" id="show_hide_password">
+                                                <input type="password" class="form-control border-end-0" id="password" formControlName="password"  placeholder="Enter Password">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-primary"><i class='bx bx-user'></i>Sign up</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end row-->
+        </div>
+    </div>
+</div>
+<!--end wrapper-->
+
+<!--Password show & hide js -->
+<script>
+    $(document).ready(function () {
+        $("#show_hide_password a").on('click', function (event) {
+            event.preventDefault();
+            if ($('#show_hide_password input').attr("type") == "text") {
+                $('#show_hide_password input').attr('type', 'password');
+                $('#show_hide_password i').addClass("bx-hide");
+                $('#show_hide_password i').removeClass("bx-show");
+            } else if ($('#show_hide_password input').attr("type") == "password") {
+                $('#show_hide_password input').attr('type', 'text');
+                $('#show_hide_password i').removeClass("bx-hide");
+                $('#show_hide_password i').addClass("bx-show");
+            }
+        });
+    });
+</script>
+<!--app JS-->

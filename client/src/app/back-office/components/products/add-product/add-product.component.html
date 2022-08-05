@@ -1,0 +1,77 @@
+<div class="row">
+    <!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">Products</div>
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">New Product</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--end breadcrumb-->
+
+    <div class="card">
+        <div class="card-body p-4">
+            
+            <h5 class="card-title text-primary">Add New Product</h5>
+            <hr/>
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="form-body mt-4">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="border border-3 p-4 rounded">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Product Title</label>
+                                <input type="text"  class="form-control" formControlName="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Description</label>
+                                <textarea type="text"  class="form-control" formControlName="description"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Product Image</label>
+                                <input type="file" class="form-control" (change)="handleFileInput($event.target.files)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="border border-3 p-4 rounded">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="" class="form-label">Price</label>
+                                    <input type="number" class="form-control" formControlName="price">
+                                </div>
+                                <div class="col-12">
+                                    <label for="" class="form-label">Compare at Price</label>
+                                    <input type="number"  class="form-control" formControlName="compareAtPrice">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="" class="form-label">Category</label>
+                                    <select formControlName="category" class="form-control">
+                                        <option value=""></option>
+                                        <option *ngFor="let category of categories let i = index" [value]="category._id">
+                                            {{category.name}}
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save <i class="fa fa-save m-l10"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end row-->
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
